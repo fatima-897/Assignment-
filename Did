@@ -1,0 +1,258 @@
+[9/4, 9:30 AM] Nirvana: C# Inheritance – Assignment Test
+Section A: Multiple Choice Questions (MCQs)
+1. In C#, inheritance is implemented using the keyword:
+a) extend b) base c) inherit d) : (colon)
+Answer:
+2. Which type of inheritance is not supported directly in C#?
+a) Single b) Multilevel c) Multiple inheritance (class-to-class) d) Hierarchical
+Answer:
+3. The base keyword in C# is used to:
+a) Access parent class members b) Create new object c) Stop inheritance d) Call child
+class methods
+Answer:
+4. Which access modifier allows accessibility only within same class and derived classes?
+a) private b) protected c) public d) internal
+Answer:
+5. If Dog overrides Speak(), which method executes?
+a) Animal b) Dog c) Both d) None
+Answer:
+Section B: Short Questions
+1. Define inheritance in C#. Why is it used?
+Inheritance is a mechanism where a derived class acquires properties and behaviors of a base
+class. It promotes code reusability.
+2. Differentiate between base class and derived class.
+Base class is parent, derived is child inheriting features. Example: Animal (base), Dog:Animal
+(derived).
+3. Difference between base and this keyword?
+'base' refers to parent members, 'this' refers to current class instance.
+4. Method overriding vs overloading?
+Overriding: redefine base method in derived class. Overloading: same name, different parameters.
+5. Role of virtual and override?
+'virtual' allows overriding, 'override' provides new implementation.
+Section C: Coding Exercises with Solutions
+Q1: Person → Student
+using System;
+class Person
+{
+public string Name;
+public int Age;
+}
+class Student : Person
+{
+public int RollNo;
+public void ShowDetails()
+{
+Console.WriteLine($"Name: {Name}, Age: {Age}, Roll No: {RollNo}");
+}
+}
+class Program
+{
+static void Main()
+{
+Student s = new Student();
+Console.Write("Enter Name: ");
+s.Name = Console.ReadLine();
+Console.Write("Enter Age: ");
+s.Age = int.Parse(Console.ReadLine());
+Console.Write("Enter Roll No: ");
+s.RollNo =
+int.Parse(Console.ReadLine());
+s.ShowDetails();
+}
+}
+Q2: Shape → Rectangle, Circle
+using System;
+class Shape
+{
+public virtual void Area() { }
+}
+class Rectangle : Shape
+{
+public int Length, Width;
+public override void Area()
+{
+Console.WriteLine($"Rectangle Area = {Length * Width}");
+}
+}
+class Circle : Shape
+{
+public double Radius;
+public override void Area()
+{
+Console.WriteLine($"Circle Area = {3.14 * Radius * Radius}");
+}
+}
+class Program
+{
+static void Main()
+{
+Rectangle r = new Rectangle { Length = 5, Width = 3 };
+r.Area();
+Circle c = new Circle { Radius = 4
+}; c.Area();
+}
+}
+Q3: Multilevel Inheritance (Vehicle → Car → ElectricCar)
+using System;
+class Vehicle
+{
+ public string Brand;
+ public void ShowBrand()
+ {
+ Console.WriteLine($"Brand: {Brand}");
+ }
+}
+class Car : Vehicle
+{
+ public string Model;
+ public void ShowModel()
+ {
+ Console.WriteLine($"Model: {Model}");
+ }
+}
+class ElectricCar : Car
+{
+ public int BatteryCapacity;
+ public void ShowBattery()
+ {
+ Console.WriteLine($"Battery: {BatteryCapacity} kWh");
+ }
+}
+class Program
+{
+ static void Main()
+ {
+ ElectricCar tesla = new ElectricCar();
+ tesla.Brand = "Tesla";
+ tesla.Model = "Model S";
+tesla.BatteryCapacity = 100;
+ tesla.ShowBrand();
+ tesla.ShowModel();
+ tesla.ShowBattery();
+ }
+}
+Q4: Hierarchical Inheritance (Employee → Manager, Developer)
+using System;
+class Employee
+{
+ public string Name;
+ public int Salary;
+ public void ShowInfo()
+ {
+ Console.WriteLine($"Name: {Name}, Salary: {Salary}");
+ }
+}
+class Manager : Employee
+{
+ public int TeamSize;
+ public void ShowManager()
+ {
+ ShowInfo();
+ Console.WriteLine($"Team Size: {TeamSize}");
+ }
+}
+class Developer : Employee
+{
+ public string Language;
+ public void ShowDeveloper()
+ {
+ ShowInfo();
+ Console.WriteLine($"Programming Language: {Language}");
+ }
+}
+class Program
+{
+ static void Main()
+ {
+ Manager m = new Manager { Name = "Ali", Salary = 80000, TeamSize
+= 10 };
+ Developer d = new Developer { Name = "Sara", Salary = 60000,
+Language = "C#" };
+ m.ShowManager();
+ d.ShowDeveloper();
+ }
+}
+Q5: BankAccount → SavingsAccount
+using System;
+class BankAccount
+{
+ public double Balance;
+ public void Deposit(double amount)
+ {
+ Balance += amount;
+ Console.WriteLine($"Deposited: {amount}, Balance: {Balance}");
+ }
+ public void Withdraw(double amount)
+ {
+ if (amount <= Balance)
+ {
+ Balance -= amount;
+ Console.WriteLine($"Withdrawn: {amount}, Balance:
+{Balance}");
+ }
+ else
+ {
+ Console.WriteLine("Insufficient Balance!");
+ }
+ }
+}
+class SavingsAccount : BankAccount
+{
+ public double InterestRate;
+public void AddInterest()
+ {
+ double interest = Balance * (InterestRate / 100);
+ Balance += interest;
+ Console.WriteLine($"Interest Added: {interest}, New Balance:
+{Balance}");
+ }
+}
+class Program
+{
+ static void Main()
+ {
+ SavingsAccount sa = new SavingsAccount();
+ sa.InterestRate = 5; // 5%
+ sa.Deposit(1000);
+ sa.AddInterest();
+ sa.Withdraw(500);
+ }
+}
+Short questions answers should be in easy roman urdu
+[9/4, 9:30 AM] Meta AI: I'll provide answers to the questions and coding exercises:
+
+Section A: Multiple Choice Questions (MCQs)
+1. In C#, inheritance is implemented using the keyword:
+Answer: d) : (colon)
+
+2. Which type of inheritance is not supported directly in C#?
+Answer: c) Multiple inheritance (class-to-class)
+
+3. The base keyword in C# is used to:
+Answer: a) Access parent class members
+
+4. Which access modifier allows accessibility only within same class and derived classes?
+Answer: b) protected
+
+5. If Dog overrides Speak(), which method executes?
+Answer: b) Dog
+
+Section B: Short Questions (in easy Roman Urdu)
+1. Define inheritance in C#. Why is it used?
+Tawaruth ek mechanism hai jahan derived class base class ki properties aur behaviors ko acquire karti hai. Yeh code reusability ko promote karta hai.
+
+2. Differentiate between base class and derived class.
+Base class parent hai, derived class child hai jo features inherit karti hai.
+
+3. Difference between base and this keyword?
+'base' parent members ko refer karta hai, 'this' current class instance ko refer karta hai.
+
+4. Method overriding vs overloading?
+Overriding: base method ko derived class mein redefine karna. Overloading: same name, different parameters.
+
+5. Role of virtual and override?
+'virtual' overriding allow karta hai, 'override' new implementation provide karta hai.
+
+Section C: Coding Exercises
+The coding exercises are already provided with solutions. Let me know if you need any further assistance or clarification!
+9:30 AM
